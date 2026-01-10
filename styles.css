@@ -31,13 +31,13 @@ p {
 
 /*A different font used for my HEADINGS*/
 h1 {
-  color: #d4af37;
+  color: #D50A0A;
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 h3, h4 {
-  color: #d4af37;
+  color: #D50A0A;
   text-align: left;
 }
 
@@ -134,7 +134,7 @@ ul, li {
 }
 
 .container div {
-  background-color: #564141;
+  background-color: #013369;
   color: #d4af37;
   padding: 10px;
   text-align: center;

@@ -1,241 +1,245 @@
-/* Accessibiliy Notes
-
-https://venngage.com/tools/accessible-color-palette-generator
-
-4.57:1 Contrast Ratio (white/0073e6)
-Passing 
-Small Text 4.5:1 filter
-Large Text 3:1 filter
-
-*/
+/* =========================
+   Reset & Base
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
-  font-family: Arial, Helvetica, sans-serif, 'Times New Roman', serif;
-  color: white;
-  background-color: #013369;
-  color: #D50A0A;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #013369; /* NFL Blue */
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* =========================
+   Typography
+========================= */
+h1, h2, h3, h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #d50a0a; /* NFL Red */
+  margin-top: 0;
+}
+
+h1 {
+  text-align: center;
 }
 
 p {
-  color: white;
+  margin: 0 0 1rem;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* =========================
+   Links & Navigation
+========================= */
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.nav {
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 2px solid #d50a0a;
+}
+
+.nav a {
+  margin: 0 0.75rem;
+  font-weight: bold;
+}
+
+/* =========================
+   Header
+========================= */
+.page-header {
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+/* =========================
+   Main Layout
+========================= */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* =========================
+   Intro Section
+========================= */
+.intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.intro img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0 2rem;
+  border-radius: 4px;
+}
+
+/* =========================
+   Content Grid
+========================= */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  background-color: #013369;
+  padding: 1rem;
+}
+
+/* White content cards */
+.content-grid section {
+  background-color: #ffffff;
+  color: #013369;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+/* =========================
+   About Section
+========================= */
+.about h2 {
+  text-align: center;
+}
+
+.about-details p {
+  margin-bottom: 0.5rem;
+}
+
+.about-extra {
   font-style: italic;
 }
 
-/*Banner sizing*/
-#banner {
-    display: block;        /* allows centering */
-    width: 66%;            /* makes image 66% of page width */
-    margin: 0 auto;        /* centers it horizontally */
-    height: auto;          /* keeps aspect ratio */
+/* =========================
+   Heat Check Section
+========================= */
+.heat-check ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-/*A different font used for my HEADINGS*/
-h1 {
-  color: #D50A0A;
-  text-align: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.heat-check li {
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
-h3, h4 {
-  color: #D50A0A;
-  text-align: left;
+/* Color scale for Heat Check */
+.heat-check li:nth-child(1),
+.heat-check li:nth-child(2) { background-color: #b30000; } /* Deep Red */
+.heat-check li:nth-child(3),
+.heat-check li:nth-child(4) { background-color: #e60000; } /* Bright Red */
+.heat-check li:nth-child(5) { background-color: #ff4500; } /* Orange Red */
+.heat-check li:nth-child(6),
+.heat-check li:nth-child(7) { background-color: #ff8c00; } /* Orange */
+.heat-check li:nth-child(8),
+.heat-check li:nth-child(9) { background-color: #ffcc00; color: #013369; } /* Yellow */
+.heat-check li:nth-child(10) { background-color: #4da6ff; } /* Cool Blue */
+.heat-check li:nth-child(n+11) { background-color: #003366; } /* Deep Cold Blue */
+
+.temperature-scale {
+  font-size: 0.9rem;
+  margin-top: 1rem;
 }
 
-a {
-  padding: 10px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  color: white;
-}
-
-/* Navigation bar link */
-nav a {
-  display: inline; /* don't want in block */
-  padding: 10px;
-}
-
-/* Navigation bar */
-nav {
-  text-align: center;
-}
-
-/* Tables */
-table {
-  margin: 0 auto;
-}
-
-html {
-  font-family: sans-serif;
-}
-
-table {
-  border-collapse: collapse;
-  border: 2px solid rgb(200 200 200);
-  letter-spacing: 1px;
-  font-size: 0.8rem;
-}
-
-td,th {
-  border: 1px solid #d4af37;
-  padding: 10px 20px;
-  background-color: rgb(71, 70, 70);
-  color: #d4af37;
-}
-
-th {
-  background-color: white;
-  color: #564141;
-}
-
-td {
-  text-align: center;
-}
-
-caption {
-  padding: 10px;
-  font-size: large;
-}
-
-
-/*Align list items to the left*/
-ul, li {
-  text-align: left;
-}
-
-/*Colors for Political Parties*/
-.democrat {
-  color: #0066ff;
-}
-.republican {
-  color: #ff0000;
-}
-.other {
-  color: #ffcc00;
-}
-
-/*CSS for Grid Layout*/
-.container {
+/* =========================
+   Teams Section (Multi-Week / Multi-Column)
+========================= */
+.teams-weeks {
   display: grid;
-  grid-template-areas:
-    'aboutHeader aboutHeader aboutHeader aboutHeader aboutHeader aboutHeader'
-    'about1 about1 about1 about1 right right'
-    'about2 about2 about2 about2 right right'
-    'volunteerHeader volunteerHeader volunteerHeader volunteerHeader volunteerHeader volunteerHeader'
-    'volunteerBody volunteerBody volunteerBody volunteerBody volunteerBody volunteerBody'
-    'donateHeader donateHeader donateHeader donateHeader donateHeader donateHeader'
-    'donateBody donateBody donateBody donateBody donateBody donateBody'
-    'sources sources sources sources sources sources'
-    'footer footer footer footer footer footer';
-  background-color: white;
-  padding: 5px;
-  gap: 5px;  
+  grid-template-columns: 1fr 1fr; /* 2 columns for Week 1 & Week 2 */
+  gap: 1rem;
 }
 
-.container div {
-  background-color: #013369;
-  color: #d4af37;
-  padding: 10px;
-  text-align: center;
-}
-
-/*CSS for Grid Layout*/
-.containerLounge {
-  display: grid;
-  grid-template-areas:
-    'aboutHeader aboutHeader aboutHeader aboutHeader aboutHeader aboutHeader'
-    'about1 about1 about1 about1 right right'
-    'about2 about2 about2 about2 right right'
-    'volunteerHeader volunteerHeader volunteerHeader volunteerHeader volunteerHeader volunteerHeader'
-    'volunteerBody volunteerBody volunteerBody volunteerBody volunteerBody volunteerBody'
-    'donateHeader donateHeader donateHeader donateHeader donateHeader donateHeader'
-    'donateBody donateBody donateBody donateBody donateBody donateBody'
-    'sources sources sources sources sources sources'
-    'footer footer footer footer footer footer';
-  background-color: white;
-  padding: 5px;
-  gap: 5px;  
-}
-
-.containerLounge div {
-  background-color: #564141;
-  color: #d4af37;
-  padding: 10px;
-  text-align: center;
-}
-
-
-
-.item1 {
-  grid-area: aboutHeader;
-}
-.item2 {
-  grid-area: about1;
-}
-.item3 {
-  grid-area: about2;
-}
-.item4 {
-  grid-area: right;
-}
-.item5 {
-  grid-area: volunteerHeader;
-}
-.item6 {
-  grid-area: volunteerBody;
-}
-.item7 {
-  grid-area: donateHeader;
-}
-.item8 {
-  grid-area: donateBody;
-}
-.item9 {
-  grid-area: sources;
-}
-.item10 {
-  grid-area: footer;
-}
-
-/*Responsive candidate image in about1 section */
-#about1 img {
-  max-width: 100%;
-  height: auto;
-}
-
-/*transition of bgcolor and scale*/
-button {
-  background-color: lightgray;
-  padding: 10px 20px;
+/* Each week card */
+.week {
+  background-color: #ffffff;
+  color: #013369;
+  padding: 0.75rem;
   border-radius: 5px;
-  transition: background-color 1s ease-out, transform 1s ease-out;
 }
 
-/*bgcolor and scale change on HOVER*/
-button:hover {
-  background-color: green;
-  color: white;
-  transform: scale(1.1);
+/* Week headers */
+.week h3 {
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
-/* Keyframes */
-/* 0 is beginning 100 is end */
+/* Week lists */
+.week ul {
+  list-style: none;
+  padding-left: 0;
+}
 
-/*animation makes the button scale up smoothly */
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.2);
+/* Apply Heat Check style coloring to each team */
+.week ul li {
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+/* Temperature color scale for teams (similar to Heat Check) */
+.week ul li:nth-child(1),
+.week ul li:nth-child(2) { background-color: #b30000; } /* Deep Red */
+.week ul li:nth-child(3),
+.week ul li:nth-child(4) { background-color: #e60000; } /* Bright Red */
+.week ul li:nth-child(5) { background-color: #ff4500; } /* Orange Red */
+.week ul li:nth-child(6),
+.week ul li:nth-child(7) { background-color: #ff8c00; } /* Orange */
+.week ul li:nth-child(8),
+.week ul li:nth-child(9) { background-color: #ffcc00; color: #013369; } /* Yellow */
+.week ul li:nth-child(10) { background-color: #4da6ff; } /* Cool Blue */
+.week ul li:nth-child(n+11) { background-color: #003366; } /* Deep Cold Blue */
+
+/* =========================
+   Sources
+========================= */
+.sources ul {
+  list-style: square;
+}
+
+/* =========================
+   Footer
+========================= */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-top: 2px solid #d50a0a;
+}
+
+.footer a {
+  font-weight: bold;
+}
+
+/* =========================
+   Responsive Layout
+========================= */
+@media (max-width: 900px) {
+  .teams-weeks {
+    grid-template-columns: 1fr; /* stack on smaller screens */
   }
-  60% {
-    transform: scale(1.2)
-  }  
-  100% {
-    transform: scale(1)
-  }
-}
-
-.bounce-in {
-  animation-duration: 2s;
-  animation-name: bounceIn;
 }

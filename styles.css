@@ -10,7 +10,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #013369; /* NFL Blue */
+  background-color: #013369;
   color: #ffffff;
   line-height: 1.6;
 }
@@ -20,26 +20,20 @@ body {
 ========================= */
 h1, h2, h3, h4 {
   font-family: Georgia, "Times New Roman", serif;
-  color: #d50a0a; /* NFL Red */
+  color: #d50a0a;
   margin-top: 0;
 }
 
-h1 {
-  text-align: center;
-}
+h1 { text-align: center; }
 
-p {
-  margin: 0 0 1rem;
-}
+p { margin: 0 0 1rem; }
 
 ul {
   margin: 0;
   padding-left: 1.25rem;
 }
 
-li {
-  margin-bottom: 0.4rem;
-}
+li { margin-bottom: 0.4rem; }
 
 /* =========================
    Links & Navigation
@@ -49,9 +43,7 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
+a:hover { text-decoration: underline; }
 
 .nav {
   text-align: center;
@@ -107,7 +99,6 @@ main {
   padding: 1rem;
 }
 
-/* White content cards */
 .content-grid section {
   background-color: #ffffff;
   color: #013369;
@@ -116,19 +107,104 @@ main {
 }
 
 /* =========================
-   About Section
+   Projections Section (Mobile First)
 ========================= */
-.about h2 {
+.projections {
   text-align: center;
 }
 
-.about-details p {
-  margin-bottom: 0.5rem;
+.projections-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
-.about-extra {
-  font-style: italic;
+.projection-card {
+  background-color: #ffffff;
+  color: #013369;
+  padding: 0.5rem;
+  border-radius: 6px;
 }
+
+.projection-card img {
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* =========================
+   Projections Responsive Scaling
+========================= */
+@media (min-width: 600px) {
+  .projections-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projection-card img {
+    max-height: 260px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .projections-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .projection-card img {
+    max-height: 200px;
+  }
+}
+
+/* =========================
+   FULL-SCREEN HOVER (SMOOTH + FIXED)
+========================= */
+@media (hover: hover) and (pointer: fine) {
+
+  .projection-card,
+  .projections-grid,
+  .content-grid {
+    overflow: visible;
+  }
+
+  .projection-card img {
+    cursor: zoom-in;
+    transition:
+      transform 0.6s ease-in-out,
+      box-shadow 0.6s ease-in-out;
+    z-index: 1;
+    position: relative;
+  }
+
+  .projection-card img:hover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    height: 85vh;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.65);
+    z-index: 99999;
+    cursor: zoom-out;
+  }
+}
+
+/* =========================
+   About Section
+========================= */
+.about h2 { text-align: center; }
+
+.about-details p { margin-bottom: 0.5rem; }
+
+.about-extra { font-style: italic; }
 
 /* =========================
    Heat Check Section
@@ -145,18 +221,17 @@ main {
   color: #ffffff;
 }
 
-/* Color scale for Heat Check */
 .heat-check li:nth-child(1),
-.heat-check li:nth-child(2) { background-color: #b30000; } /* Deep Red */
+.heat-check li:nth-child(2) { background-color: #b30000; }
 .heat-check li:nth-child(3),
-.heat-check li:nth-child(4) { background-color: #e60000; } /* Bright Red */
-.heat-check li:nth-child(5) { background-color: #ff4500; } /* Orange Red */
+.heat-check li:nth-child(4) { background-color: #e60000; }
+.heat-check li:nth-child(5) { background-color: #ff4500; }
 .heat-check li:nth-child(6),
-.heat-check li:nth-child(7) { background-color: #ff8c00; } /* Orange */
+.heat-check li:nth-child(7) { background-color: #ff8c00; }
 .heat-check li:nth-child(8),
-.heat-check li:nth-child(9) { background-color: #ffcc00; color: #013369; } /* Yellow */
-.heat-check li:nth-child(10) { background-color: #4da6ff; } /* Cool Blue */
-.heat-check li:nth-child(n+11) { background-color: #003366; } /* Deep Cold Blue */
+.heat-check li:nth-child(9) { background-color: #ffcc00; color: #013369; }
+.heat-check li:nth-child(10) { background-color: #4da6ff; }
+.heat-check li:nth-child(n+11) { background-color: #003366; }
 
 .temperature-scale {
   font-size: 0.9rem;
@@ -164,15 +239,14 @@ main {
 }
 
 /* =========================
-   Teams Section (Multi-Week / Multi-Column)
+   Teams Section
 ========================= */
 .teams-weeks {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 columns for Week 1 & Week 2 */
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-/* Each week card */
 .week {
   background-color: #ffffff;
   color: #013369;
@@ -180,19 +254,16 @@ main {
   border-radius: 5px;
 }
 
-/* Week headers */
 .week h3 {
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
-/* Week lists */
 .week ul {
   list-style: none;
   padding-left: 0;
 }
 
-/* Apply Heat Check style coloring to each team */
 .week ul li {
   padding: 0.3rem 0.5rem;
   border-radius: 4px;
@@ -201,25 +272,22 @@ main {
   margin-bottom: 0.25rem;
 }
 
-/* Temperature color scale for teams (similar to Heat Check) */
 .week ul li:nth-child(1),
-.week ul li:nth-child(2) { background-color: #b30000; } /* Deep Red */
+.week ul li:nth-child(2) { background-color: #b30000; }
 .week ul li:nth-child(3),
-.week ul li:nth-child(4) { background-color: #e60000; } /* Bright Red */
-.week ul li:nth-child(5) { background-color: #ff4500; } /* Orange Red */
+.week ul li:nth-child(4) { background-color: #e60000; }
+.week ul li:nth-child(5) { background-color: #ff4500; }
 .week ul li:nth-child(6),
-.week ul li:nth-child(7) { background-color: #ff8c00; } /* Orange */
+.week ul li:nth-child(7) { background-color: #ff8c00; }
 .week ul li:nth-child(8),
-.week ul li:nth-child(9) { background-color: #ffcc00; color: #013369; } /* Yellow */
-.week ul li:nth-child(10) { background-color: #4da6ff; } /* Cool Blue */
-.week ul li:nth-child(n+11) { background-color: #003366; } /* Deep Cold Blue */
+.week ul li:nth-child(9) { background-color: #ffcc00; color: #013369; }
+.week ul li:nth-child(10) { background-color: #4da6ff; }
+.week ul li:nth-child(n+11) { background-color: #003366; }
 
 /* =========================
    Sources
 ========================= */
-.sources ul {
-  list-style: square;
-}
+.sources ul { list-style: square; }
 
 /* =========================
    Footer
@@ -231,15 +299,11 @@ main {
   border-top: 2px solid #d50a0a;
 }
 
-.footer a {
-  font-weight: bold;
-}
-
 /* =========================
    Responsive Layout
 ========================= */
 @media (max-width: 900px) {
   .teams-weeks {
-    grid-template-columns: 1fr; /* stack on smaller screens */
+    grid-template-columns: 1fr;
   }
 }
